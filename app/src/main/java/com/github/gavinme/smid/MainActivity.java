@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+
 import cn.shuzilm.core.Main;
 
 public class MainActivity extends Activity {
@@ -15,6 +16,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         tv_smid = findViewById(R.id.tv_smid);
         tv_smid.setText(Main.getQueryID(this));
+        Log.i("smid", Main.getQueryID(this));
     }
 
 }

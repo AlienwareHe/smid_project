@@ -14,10 +14,25 @@ android {
         }
     }
 
+    signingConfigs {
+        release {
+            storeFile rootProject.file('hermes_key')
+            storePassword "hermes"
+            keyAlias "hermes"
+            keyPassword "hermes"
+        }
+    }
+
     buildTypes {
-        debug {
+        release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        //debug ,也使用release的key，hermes代码无法在线调试，所以没有debug的意义
+        debug {
+            signingConfig signingConfigs.release
         }
 
     }
